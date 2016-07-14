@@ -15,7 +15,7 @@ import shortid from 'shortid';
 
 const events = new Map();
 
-export const LoopEvent = Object.freeze({
+export const EventColl = Object.freeze({
 	/**
 	 * Add a PIXI event function
 	 * @param  {function}  event   add the function into the events collection

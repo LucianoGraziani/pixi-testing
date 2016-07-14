@@ -5,12 +5,10 @@ const modules = ['node_modules', 'src', 'test'];
 
 module.exports = {
 	debug: true,
-	devtool: 'inline-source-map',
+	devtool: 'inline-eval-source-map',
 	entry: [
-		'./src/index.js',
+		'./src/main.js',
 	],
-	externals: {
-	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			compressor: {
@@ -25,7 +23,7 @@ module.exports = {
 	},
 	resolve: {
 		root: __dirname,
-		moduleDirectories: modules,
+		modulesDirectory: modules,
 		modules,
 		extensions: ['', '.js'],
 	},

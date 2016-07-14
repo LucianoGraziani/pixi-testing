@@ -1,4 +1,3 @@
-// import util from 'util';
 import expect from 'expect';
 import { Text } from 'pixi.js';
 
@@ -25,11 +24,18 @@ describe('<Name>', () => {
 	it('has a text', () => {
 		const { text } = renderedName;
 
-		// console.log(util.inspect(renderedName, {
-		// 	showHidden: false,
-		// 	depth: null,
-		// 	colors: true,
-		// }));
 		expect(text).toNotBe(' ');
+	});
+
+	describe('Event: mouseOver', () => {
+		const mockEvent = {
+			preventDefault() {},
+		};
+
+		it('changes his style when execute handleMouseOver'/*, () => {
+			name.handleMouseOver(mockEvent);
+
+			expect(renderedName.style.color).toBe('red');
+		}*/);
 	});
 });

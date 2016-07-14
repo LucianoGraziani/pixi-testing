@@ -1,10 +1,15 @@
 import expect from 'expect';
-import { Container, Text } from 'pixi.js';
+import PIXI, { Container, Text } from 'pixi.js';
 
-import Stage from 'components/Stage';
+import Stage, { StageProps } from 'components/Stage';
 
 describe('<Stage>', () => {
-	const stage = new Stage();
+	const renderer = PIXI.autoDetectRenderer(StageProps.width, StageProps.height, {
+		antialias: false,
+		transparent: true,
+		resolution: 1,
+	});
+	const stage = new Stage(renderer);
 	const renderedStage = stage.render();
 
 	it('renders a PIXI Container', () => {

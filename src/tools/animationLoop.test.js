@@ -1,12 +1,12 @@
 import expect from 'expect';
 
-import animationLoop, { LoopEvent } from 'tools/animationLoop';
+import animationLoop, { EventColl } from 'tools/animationLoop';
 
 describe('Tool: animationLoop', () => {
-	describe('LoopEvent', () => {
+	describe('EventColl', () => {
 		it('properties cannot be modified', (done) => {
 			try {
-				LoopEvent.add = 'something is bad if it is assigned';
+				EventColl.add = 'something is bad if it is assigned';
 			} catch (err) {
 				expect(err).toBeA(TypeError);
 				done();
@@ -15,7 +15,7 @@ describe('Tool: animationLoop', () => {
 		});
 		it('cannot be added properties', (done) => {
 			try {
-				LoopEvent.newProperty = 'something is bad if it is assigned';
+				EventColl.newProperty = 'something is bad if it is assigned';
 			} catch (err) {
 				expect(err).toBeA(TypeError);
 				done();
@@ -27,13 +27,13 @@ describe('Tool: animationLoop', () => {
 			let id;
 
 			it('adds an event', () => {
-				id = LoopEvent.add(f => f);
+				id = EventColl.add(f => f);
 
 				expect(id).toBeA('string');
 			});
 			it('deletes an existing event', (done) => {
 				try {
-					LoopEvent.remove(id);
+					EventColl.remove(id);
 				} catch (err) {
 					done(err);
 				}
@@ -42,7 +42,7 @@ describe('Tool: animationLoop', () => {
 
 			it('throws a TypeError when trying to add anything than a function', (done) => {
 				try {
-					LoopEvent.add();
+					EventColl.add();
 				} catch (err) {
 					expect(err).toBeA(TypeError);
 					done();
@@ -51,7 +51,7 @@ describe('Tool: animationLoop', () => {
 			});
 			it('throws a ReferenceError when trying to delete a function with unknown ID', (done) => {
 				try {
-					LoopEvent.remove(1);
+					EventColl.remove(1);
 				} catch (err) {
 					expect(err).toBeA(ReferenceError);
 					done();
@@ -61,7 +61,7 @@ describe('Tool: animationLoop', () => {
 		});
 	});
 
-	describe('animationLoop', (done) => {
+	describe('animationLoop', () => {
 		describe('onStart', () => {
 			const rendererMock = {
 				render() {},
@@ -75,10 +75,10 @@ describe('Tool: animationLoop', () => {
 				 */
 				animationLoop.startLoop(rendererMock);
 			});
-			it('executes the event', () => {
+			it('executes the event', (done) => {
 				const spy = expect.createSpy();
 
-				LoopEvent.add(spy);
+				EventColl.add(spy);
 				setTimeout(() => {
 					expect(spy).toHaveBeenCalled();
 					done();

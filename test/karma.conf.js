@@ -12,7 +12,7 @@ module.exports = (config) => {
 			included: true,
 		}],
 		preprocessors: {
-			['./test-bundler.js']: ['webpack'],
+			['./test-bundler.js']: ['sourcemap', 'webpack'],
 		},
 		reporters: ['mocha'],
 		client: {

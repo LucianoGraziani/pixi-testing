@@ -1,4 +1,4 @@
-import { Container } from 'pixi.js';
+import { Container, interaction } from 'pixi.js';
 
 import Name from 'components/Name';
 
@@ -15,16 +15,19 @@ export const StageProps = {
 };
 
 export default class Stage {
-	constructor() {
-		this.state = {
+	constructor(renderer) {
+		const { InteractionManager } = interaction;
+
+		this.props = {
+			renderer,
 			stage: new Container(),
 			// FIXME hardcoded name
-			name: new Name('Luciano Graziani'),
+			name: new Name('Luciano Graziani', new InteractionManager(renderer)),
 		};
 	}
 
 	render() {
-		const { stage, name } = this.state;
+		const { stage, name } = this.props;
 
 		stage.addChild(name.render());
 
