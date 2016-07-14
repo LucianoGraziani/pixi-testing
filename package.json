@@ -4,9 +4,10 @@
   "description": "Animated name with pixi.js",
   "main": "app/index.html",
   "scripts": {
+    "lint": "eslint src/**/*.js",
+    "serve": "webpack-dev-server --content-base public/",
     "test": "karma start test/karma.conf.js",
-    "test:watch": "npm run test -- --auto-watch --no-single-run",
-    "serve": "webpack-dev-server --content-base public/"
+    "test:watch": "npm run test -- --auto-watch --no-single-run"
   },
   "keywords": [
     "pixijs",
@@ -15,7 +16,6 @@
   ],
   "author": "Luciano Graziani",
   "license": "MIT",
-  "__comment": "pixi.js 4 deps: bit-twiddle, earcut, eventemitter3, ismobilejs, object-assign, pixi-gl-core, resource-loader",
   "dependencies": {
     "shortid": "^2.2.6"
   },
@@ -28,7 +28,7 @@
     "babel-preset-es2015-webpack": "^6.4.1",
     "babel-preset-stage-0": "^6.5.0",
     "eslint": "^3.0.1",
-    "eslint-import-resolver-webpack": "^0.3.2",
+    "eslint-import-resolver-node": "^0.2.1",
     "eslint-plugin-import": "^1.10.2",
     "expect": "^1.20.2",
     "karma": "^1.1.1",

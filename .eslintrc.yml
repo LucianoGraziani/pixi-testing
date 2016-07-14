@@ -18,8 +18,12 @@ settings:
     - \.eot(\?v=\d+.\d+.\d+)?$              # can't parse fonts
     - \.(woff|woff2|ttf(\?v=\d+.\d+.\d+)?)$ # can't parse fonts
   import/resolver:
-    webpack:
-      config: 'webpack.config.js'
+    node:
+      extensions:
+        - .js
+      moduleDirectory:
+        - node_modules
+        - src
 
 parserOptions:
   sourceType: 'module'

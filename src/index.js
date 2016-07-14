@@ -17,4 +17,5 @@ const renderer = PIXI.autoDetectRenderer(StageProps.width, StageProps.height, {
 renderer.autoResize = true;
 
 const stage = new Stage();
+
 renderer.render(stage.render());
