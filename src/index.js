@@ -1,6 +1,6 @@
 import PIXI from 'pixi.js';
 
-import Stage, { StageProps } from 'app/components/Stage';
+import Stage, { StageProps } from 'components/Stage';
 
 // Get element from DOM
 const view = document.getElementById('stage');
@@ -8,9 +8,8 @@ const view = document.getElementById('stage');
 // Create PIXI renderer
 const renderer = PIXI.autoDetectRenderer(StageProps.width, StageProps.height, {
 	view,
-	backgroundColor: StageProps.backgroundColor,
 	antialias: false,
-	transparent: false,
+	transparent: true,
 	resolution: 1,
 });
 

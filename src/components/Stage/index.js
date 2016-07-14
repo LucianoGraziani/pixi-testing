@@ -1,7 +1,9 @@
 import { Container } from 'pixi.js';
 
+import Name from 'components/Name';
+
 export const StageProps = {
-	backgroundColor: 0x000000,
+	backgroundColor: 0xFFFFFF,
 	width: 512,
 	height: 512,
 	boundaries: {
@@ -16,11 +18,16 @@ export default class Stage {
 	constructor() {
 		this.state = {
 			stage: new Container(),
+			// FIXME hardcoded name
+			name: new Name('Luciano Graziani'),
 		};
 	}
 
 	render() {
-		const { stage } = this.state;
+		const { stage, name } = this.state;
+
+		stage.addChild(name.render());
+
 		return stage;
 	}
 }

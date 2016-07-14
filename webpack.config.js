@@ -1,9 +1,11 @@
 const webpack = require('webpack');
-//const path = require('path');
+const path = require('path');
+
+const modules = ['node_modules', 'src', 'test'];
 
 module.exports = {
 	debug: true,
-	devtool: 'source-map',
+	devtool: 'inline-source-map',
 	entry: [
 		'./src/index.js',
 	],
@@ -17,22 +19,19 @@ module.exports = {
 		}),
 	],
 	output: {
-		paths: __dirname,
-		filename: './src/bundle.js',
+		paths: path.resolve(__dirname, 'public'),
+		publicPath: '/assets/',
+		filename: 'bundle.js',
 	},
 	resolve: {
 		root: __dirname,
-		modulesDirectories: [
-			'node_modules',
-		],
-		alias: {
-			app: 'src',
-		},
+		moduleDirectories: modules,
+		modules,
 		extensions: ['', '.js'],
 	},
 	module: {
 		loaders: [{
-			loader: 'babel-loader',
+			loader: 'babel',
 			query: {
 				presets: ['es2015', 'stage-0'],
 			},
