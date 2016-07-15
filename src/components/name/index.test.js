@@ -4,7 +4,18 @@ import { Text } from 'pixi.js';
 import Name from 'components/Name';
 
 describe('<Name>', () => {
-	const name = new Name('Luciano Graziani');
+	const mockEvent = {
+		data: {
+			global: [1,1],
+		},
+		preventDefault() {},
+	};
+	const interactionManagerMock = {
+		processInteractive(point, sprite, callback, hitTest) {
+			callback(sprite, hitTest);
+		},
+	};
+	const name = new Name('Luciano Graziani', interactionManagerMock);
 	const renderedName = name.render();
 
 	it('renders a PIXI Text', () => {
@@ -28,14 +39,10 @@ describe('<Name>', () => {
 	});
 
 	describe('Event: mouseOver', () => {
-		const mockEvent = {
-			preventDefault() {},
-		};
-
-		it('changes his style when execute handleMouseOver'/*, () => {
+		it('changes his style when execute handleMouseOver', () => {
 			name.handleMouseOver(mockEvent);
 
 			expect(renderedName.style.color).toBe('red');
-		}*/);
+		});
 	});
 });
