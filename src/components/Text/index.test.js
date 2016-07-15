@@ -42,7 +42,7 @@ describe('<Name>', () => {
 		it('changes his style when execute handleMouseOver', () => {
 			name.handleMouseOver(mockEvent);
 
-			expect(renderedName.style.color).toBe('red');
+			expect(renderedName.style.fill).toBe('red');
 		});
 	});
 });

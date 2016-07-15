@@ -28,13 +28,24 @@ module.exports = {
 		extensions: ['', '.js'],
 	},
 	module: {
-		loaders: [{
-			loader: 'babel',
-			query: {
-				presets: ['es2015', 'stage-0'],
+		loaders: [
+			{
+				loader: 'babel',
+				query: {
+					presets: ['es2015', 'stage-0'],
+				},
+				test: /\.js$/,
+				exclude: /(node_modules|bower_components)/,
 			},
-			test: /\.js$/,
-			exclude: /(node_modules|bower_components)/,
-		}],
+			// pixi uses fs.readFileSync and require()s json files
+			{
+				test: /\.js$/,
+				loaders: ['transform?brfs'],
+				include: /node_modules/,
+			}, {
+				test: /\.json$/,
+				loaders: ['file'],
+			},
+		],
 	},
 };

@@ -16,12 +16,15 @@ export default class Name {
 	render() {
 		const { content } = this.props;
 
-		content.on('mousemove', this.handleMouseOver);
+		content.on('mouseover', this.handleMouseOver);
+		content.interactive = true;
 
 		return content;
 	}
 }
 
-function changeColor(content, hit) {
-	content.style.color = hit ? 'red' : 'black';
+function changeColor(content) {
+	content.scale.x += 0.3;
+	content.scale.y += 0.3;
+	content.style.fill = 'red';
 }

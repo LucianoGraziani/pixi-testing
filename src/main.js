@@ -5,6 +5,6 @@ import Stage from 'components/Stage';
 const view = document.getElementById('stage');
 
 // Create PIXI renderer
-const renderComponent = new Renderer(Stage, view);
+const renderer = new Renderer(Stage, view);
 
-renderComponent.render();
+renderer.render();
