@@ -12,6 +12,7 @@ settings:
   import/ignore:
     - node_modules                          # mostly CommonJS (ignored by default)
     - \.coffee$                             # fraught with parse errors
+    - \.json$                               # can't parse JSON
     - \.(scss|less|css)$                    # can't parse unprocessed CSS modules, either
     - \.(jpe?g|png|gif|ico)$                # can't parse images
     - \.svg(\?v=\d+.\d+.\d+)?$              # can't parse images
@@ -23,7 +24,9 @@ settings:
         - .js
       moduleDirectory:
         - node_modules
+        - assets
         - src
+        - test
 
 parserOptions:
   sourceType: 'module'

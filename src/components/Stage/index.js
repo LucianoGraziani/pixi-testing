@@ -4,8 +4,8 @@ import Name from 'components/Name';
 
 export const StageProps = {
 	backgroundColor: 0xFFFFFF,
-	width: 512,
-	height: 512,
+	width: 300,
+	height: 80,
 	boundaries: {
 		x: 32,
 		y: 15,

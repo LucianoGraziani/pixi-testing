@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const modules = ['node_modules', 'src', 'test'];
+const modules = ['node_modules', 'src', 'test', 'assets'];
 
 module.exports = {
 	debug: true,
@@ -31,20 +31,23 @@ module.exports = {
 		loaders: [
 			{
 				loader: 'babel',
-				query: {
-					presets: ['es2015', 'stage-0'],
-				},
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
+			}, {
+				test: /\.(jpe?g|png|gif)$/i,
+				loaders: ['file'],
 			},
-			// pixi uses fs.readFileSync and require()s json files
+			// pixi uses fs.readFileSync require()s json files and need to transform his version
 			{
 				test: /\.js$/,
 				loaders: ['transform?brfs'],
 				include: /node_modules/,
 			}, {
 				test: /\.json$/,
-				loaders: ['file'],
+				loaders: ['json'],
+			}, {
+				include: path.resolve(__dirname, 'node_modules/pixi.js'),
+				loader: 'transform/cacheable?browserify-versionify',
 			},
 		],
 	},
