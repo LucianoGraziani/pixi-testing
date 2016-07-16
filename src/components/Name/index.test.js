@@ -2,16 +2,9 @@ import expect from 'expect';
 import { Text } from 'pixi.js';
 
 import Name from 'components/Name';
+import interactionManagerMock from 'mocks/interactionManagerMock';
 
 describe('<Name>', () => {
-	const interactionManagerMock = {
-		processInteractive(point, sprite, callback, hitTest) {
-			callback(sprite, hitTest);
-		},
-		mouse: {
-			global: [1, 1],
-		},
-	};
 	const name = new Name('Luciano Graziani', interactionManagerMock);
 	const renderedName = name.render();
 

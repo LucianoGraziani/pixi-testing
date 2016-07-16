@@ -1,29 +1,10 @@
-// import util from 'util';
 import expect from 'expect';
-import { Container } from 'pixi.js';
 
 import Renderer from 'components/Renderer';
 import { EventColl } from 'tools/animationLoop';
+import StageMock from 'mocks/StageMock';
 
 describe('<Renderer>', () => {
-	class StageMock {
-		constructor(renderer) {
-			this.props = {
-				renderer,
-				container: new Container(),
-			};
-		}
-		render() {
-			return this.props.container;
-		}
-		willUnmount() {
-			const spy = expect.createSpy();
-
-			spy();
-			expect(spy).toHaveBeenCalled();
-		}
-	}
-
 	it('returns a render instance when given a canvas element', (done) => {
 		const canvas = document.createElement('canvas');
 

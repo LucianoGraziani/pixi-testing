@@ -2,26 +2,14 @@ import { Container, interaction } from 'pixi.js';
 
 import Name from 'components/Name';
 
-export const StageProps = {
-	backgroundColor: 0xFFFFFF,
-	width: 300,
-	height: 80,
-	boundaries: {
-		x: 32,
-		y: 15,
-		width: 480,
-		height: 480,
-	},
-};
-
-export default class Stage {
+class NameStage {
 	constructor(renderer) {
 		const { InteractionManager } = interaction;
 
 		this.props = {
 			renderer,
 			stage: new Container(),
-			// FIXME hardcoded name
+			// FIXME hardcoded Name
 			name: new Name('Luciano Graziani', new InteractionManager(renderer)),
 		};
 	}
@@ -34,3 +22,11 @@ export default class Stage {
 		return stage;
 	}
 }
+
+NameStage.props = {
+	backgroundColor: 0xFFFFFF,
+	width: 300,
+	height: 80,
+};
+
+export default NameStage;

@@ -35,7 +35,7 @@ module.exports = {
 				exclude: /(node_modules|bower_components)/,
 			}, {
 				test: /\.(jpe?g|png|gif)$/i,
-				loaders: ['file'],
+				loaders: ['file?name=[path][name].[ext]'],
 			},
 			// pixi uses fs.readFileSync require()s json files and need to transform his version
 			{

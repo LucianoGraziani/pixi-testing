@@ -1,10 +1,10 @@
 import expect from 'expect';
 import PIXI, { Container, Text } from 'pixi.js';
 
-import Stage, { StageProps } from 'components/Stage';
+import Stage from 'components/stages/NameStage';
 
-describe('<Stage>', () => {
-	const renderer = PIXI.autoDetectRenderer(StageProps.width, StageProps.height, {
+describe('<NameStage>', () => {
+	const renderer = PIXI.autoDetectRenderer(Stage.props.width, Stage.props.height, {
 		antialias: false,
 		transparent: true,
 		resolution: 1,

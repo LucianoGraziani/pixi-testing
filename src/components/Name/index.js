@@ -5,7 +5,7 @@ import { Emitter } from 'pixi-particles';
 import particlesImgUrl from 'images/particle.png';
 import particlesData from 'data/particle.json';
 import { EventColl } from 'tools/animationLoop';
-import { StageProps } from 'components/Stage';
+import NameStage from 'components/stages/NameStage';
 
 export default class Name {
 	constructor(name, interactionManager) {
@@ -17,7 +17,7 @@ export default class Name {
 
 		const emitter = new Emitter(pivot, [Texture.fromImage(particlesImgUrl)], particlesData);
 
-		content.position.x = (StageProps.width / 2) - content.width / 2;
+		content.position.x = (NameStage.props.width / 2) - content.width / 2;
 		content.position.y = 0;
 
 		pivot.position.x = 2;

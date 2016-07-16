@@ -1,12 +1,11 @@
 import PIXI from 'pixi.js';
 
 import animationLoop from 'tools/animationLoop';
-import { StageProps } from 'components/Stage';
 
 export default class Renderer {
 	constructor(Stage, view) {
 		// Create PIXI renderer
-		const renderer = PIXI.autoDetectRenderer(StageProps.width, StageProps.height, {
+		const renderer = PIXI.autoDetectRenderer(Stage.props.width, Stage.props.height, {
 			view,
 			antialias: false,
 			transparent: true,

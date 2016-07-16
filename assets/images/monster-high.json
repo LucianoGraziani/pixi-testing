@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "monster-high",
+	"frame": {"x":0,"y":0,"w":904,"h":174},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":904,"h":174},
+	"sourceSize": {"w":904,"h":174}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "/assets/images/monster.png",
+	"format": "RGBA8888",
+	"size": {"w":904,"h":174},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c8ee31be06b51fc4a5740692e90e2703:2f2906f2f79b7d3fd4d04f00446d0c1a:6ec6ef82eac74a14701d8066d2bc065f$"
+}
+}

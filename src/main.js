@@ -1,5 +1,5 @@
 import Renderer from 'components/Renderer';
-import Stage from 'components/Stage';
+import Stage from 'components/stages/NameStage';
 
 // Get element from DOM
 const view = document.getElementById('stage');

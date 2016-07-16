@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "monster",
+	"frame": {"x":0,"y":0,"w":904,"h":174},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":904,"h":174},
+	"sourceSize": {"w":904,"h":174}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "assets/images/monster.png",
+	"format": "RGBA8888",
+	"size": {"w":904,"h":174},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4f5653208392d7021bb31b717e79e9eb:2f2906f2f79b7d3fd4d04f00446d0c1a:6ec6ef82eac74a14701d8066d2bc065f$"
+}
+}

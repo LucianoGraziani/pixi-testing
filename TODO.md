@@ -1,0 +1,1 @@
+- [x] Make pixi json loader a Promise. This way it can be shared across the app.
