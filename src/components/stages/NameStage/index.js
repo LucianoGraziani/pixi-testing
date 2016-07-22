@@ -9,7 +9,7 @@ class NameStage {
 		this.props = {
 			renderer,
 			stage: new Container(),
-			// FIXME hardcoded Name
+			// FIXME:10 hardcoded Name
 			name: new Name('Luciano Graziani', new InteractionManager(renderer)),
 		};
 	}
@@ -23,10 +23,13 @@ class NameStage {
 	}
 }
 
+NameStage.width = 300;
+NameStage.height = 80;
 NameStage.props = {
 	backgroundColor: 0xFFFFFF,
-	width: 300,
-	height: 80,
+	antialias: false,
+	transparent: true,
+	resolution: 1,
 };
 
 export default NameStage;

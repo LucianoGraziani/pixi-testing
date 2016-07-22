@@ -1,15 +1,15 @@
 export default class LoaderMock {
-	constructor(success, err, message) {
+	constructor(err, message, spy = null) {
 		this.props = {
-			success,
 			err,
 			message,
+			spy,
 		};
 		this.resources = {};
 	}
 	add(resource) {
 		const self = this;
-		const { success, err, message } = this.props;
+		const { err, message, spy } = this.props;
 
 		return {
 			load(callback) {
@@ -18,7 +18,8 @@ export default class LoaderMock {
 
 					return;
 				}
-				self.resources[success] = true,
+				if (spy !== null) spy();
+				self.resources[resource] = true;
 				callback();
 			},
 		};

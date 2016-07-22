@@ -32,7 +32,11 @@ describe('<Renderer>', () => {
 	});
 
 	describe('Start and Finish events', () => {
-		const component = new Renderer(StageMock);
+		let component;
+
+		beforeEach(() => {
+			component = new Renderer(StageMock);
+		});
 
 		it('starts the animationLoop on renderization', (done) => {
 			const spy = expect.createSpy();
@@ -46,6 +50,7 @@ describe('<Renderer>', () => {
 			}, 5);
 		});
 		it('stops the animationLoop on unmount and propagates the `componentWillUnmount` event', () => {
+			// expects are in StageMock class
 			component.willUnmount();
 		});
 	});

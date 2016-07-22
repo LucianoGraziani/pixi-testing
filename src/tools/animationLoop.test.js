@@ -61,7 +61,7 @@ describe('Tool: animationLoop', () => {
 		});
 	});
 
-	describe('animationLoop', () => {
+	describe('API', () => {
 		describe('onStart', () => {
 			const rendererMock = {
 				render() {},

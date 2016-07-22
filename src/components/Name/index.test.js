@@ -5,8 +5,13 @@ import Name from 'components/Name';
 import interactionManagerMock from 'mocks/interactionManagerMock';
 
 describe('<Name>', () => {
-	const name = new Name('Luciano Graziani', interactionManagerMock);
-	const renderedName = name.render();
+	let name;
+	let renderedName;
+
+	beforeEach(() => {
+		name = new Name('Luciano Graziani', interactionManagerMock);
+		renderedName = name.render();
+	});
 
 	it('renders a PIXI Text', () => {
 		expect(renderedName).toBeA(Text);

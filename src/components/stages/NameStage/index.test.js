@@ -4,13 +4,17 @@ import PIXI, { Container, Text } from 'pixi.js';
 import Stage from 'components/stages/NameStage';
 
 describe('<NameStage>', () => {
-	const renderer = PIXI.autoDetectRenderer(Stage.props.width, Stage.props.height, {
-		antialias: false,
-		transparent: true,
-		resolution: 1,
+	let renderer;
+	let stage;
+	let renderedStage;
+
+	beforeEach(() => {
+		renderer = PIXI.autoDetectRenderer(Stage.width, Stage.height, {
+			...Stage.props,
+		});
+		stage = new Stage(renderer);
+		renderedStage = stage.render();
 	});
-	const stage = new Stage(renderer);
-	const renderedStage = stage.render();
 
 	it('renders a PIXI Container', () => {
 		expect(renderedStage).toBeA(Container);
@@ -25,7 +29,11 @@ describe('<NameStage>', () => {
 	});
 
 	describe('Child: <Name>', () => {
-		const { children } = renderedStage;
+		let children;
+
+		beforeEach(() => {
+			children = renderedStage.children;
+		});
 
 		it('has one child of type Text', () => {
 			expect(children.length).toBe(1);

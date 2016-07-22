@@ -3,7 +3,8 @@ import 'pixi-tween'; //Injects tween into PIXI namespace
 import { Emitter } from 'pixi-particles';
 
 import particlesImgUrl from 'images/particle.png';
-import particlesData from 'data/particle.json';
+// eslint-disable-next-line import/no-unresolved
+import particlesData from 'json!data/particle.json';
 import { EventColl } from 'tools/animationLoop';
 import NameStage from 'components/stages/NameStage';
 
@@ -35,7 +36,7 @@ export default class Name {
 		const { content, interactionManager, emitter, tween } = this.props;
 		let elapsed = Date.now();
 
-		function update() {
+		function textUpdate() {
 			const now = Date.now();
 			const { mouse } = interactionManager;
 
@@ -46,7 +47,7 @@ export default class Name {
 			elapsed = now;
 		}
 
-		return update;
+		return textUpdate;
 	}
 	render() {
 		const { content } = this.props;

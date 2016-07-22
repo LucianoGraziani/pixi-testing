@@ -43,9 +43,6 @@ module.exports = {
 				loaders: ['transform?brfs'],
 				include: /node_modules/,
 			}, {
-				test: /\.json$/,
-				loaders: ['json'],
-			}, {
 				include: path.resolve(__dirname, 'node_modules/pixi.js'),
 				loader: 'transform/cacheable?browserify-versionify',
 			},

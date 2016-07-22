@@ -3,15 +3,16 @@
  * Something that would save the instances of
  * his resources, so it can be shared across the app.
  */
-const resources = new Map();
-
 export default class PixiLoader {
 	constructor(loader) {
 		this.props = {
 			loader,
+			resources: new Map(),
 		};
 	}
 	load(resource) {
+		const { resources } = this.props;
+
 		if (resources.has(resource)) {
 			return resources.get(resource);
 		}
